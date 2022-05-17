@@ -1,0 +1,19 @@
+FROM amd64/python:3.7-slim-buster
+
+WORKDIR /app
+
+# ADD ./sample.mp4 .
+
+COPY requirements.txt ./
+
+RUN pip install -r requirements.txt
+
+RUN apt-get update
+
+RUN apt-get install ffmpeg libsm6 libxext6 -y
+
+COPY . .
+
+CMD [ "python3", "-u", "./main.py" ]
+
+EXPOSE 8080

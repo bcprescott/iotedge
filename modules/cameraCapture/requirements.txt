@@ -1,0 +1,5 @@
+azure-iot-device~=2.7.0
+requests
+flask
+opencv-python
+imutils
